@@ -11,7 +11,6 @@ A proposta foi explorar como a inclusão de adapters pode influenciar o desempen
 	1.	Preparação do Dataset
 	2.	Adaptação do Código para Adapters
 	3.	Avaliação Experimental
-	4.	Resultados e Discussão
 
 ## Preparação do Dataset
 
@@ -19,6 +18,35 @@ Para desenvolver um conjunto de dados personalizado, capturei imagens de categor
 
 	1.	Coleta de Imagens: Reuni pelo menos 200 imagens para cada classe. As classes foram selecionadas para fornecer variedade e contextos interessantes para os experimentos.
 	2.	Divisão do Dataset: Organizei o dataset em proporções de 70% para treino, 15% para validação e 15% para teste. A estrutura final foi:
+
+    dataset/
+    ├── train/
+    ├── val/
+    └── test/
+
+    3.	Pré-processamento: As imagens foram ajustadas para serem compatíveis com a entrada do modelo e padronizadas em tamanho e formato.
+
+## Adaptação do Código para Adapters
+
+O próximo passo foi adaptar o código da rede CAS-Vit para suportar adapters. Referenciei a implementação da arquitetura ViT com adapters, disponível aqui.
+
+Principais Modificações
+
+	•	Adição de Adapters: Incluí adapters em cada bloco da arquitetura CAS-Vit, permitindo que apenas eles fossem treináveis, mantendo o backbone CAS-Vit congelado.
+	•	Ajustes no Forward: Alterei as funções forward_train e forward_test para incluir os adapters no fluxo de dados da rede.
+	•	Parâmetros Congelados: Congelei todas as camadas da CAS-Vit, liberando apenas os adapters para treinamento, garantindo assim que as adaptações fossem isoladas.
+
+## Avaliação Experimental
+
+Com a rede adaptada e o dataset preparado, realizei duas avaliações distintas:
+
+	1.	Finetuning com Dataset Personalizado
+	•	CAS-Vit Original: Treinei a versão original da CAS-Vit com meu dataset, utilizando parâmetros de aprendizado adequados para finetuning.
+	•	CAS-Vit com Adapters: Em paralelo, realizei o mesmo processo com a versão adaptada com adapters.
+	2.	Avaliação nos Conjuntos de Teste
+	•	Avaliação 1: Ambos os modelos foram avaliados no conjunto de teste do dataset personalizado. Utilizei a função classification_report da biblioteca scikit-learn para obter métricas detalhadas de desempenho por classe.
+	•	Avaliação 2: Executei ambos os modelos no conjunto ImageNet-A para observar como a generalização do modelo CAS-Vit foi impactada pela adição dos adapters.
+
 
 ## Run in collab
 ```bash
