@@ -29,7 +29,7 @@ Para desenvolver um conjunto de dados personalizado, capturei imagens de categor
 
 ## Adaptação do Código para Adapters
 
-O próximo passo foi adaptar o código da rede CAS-Vit para suportar adapters. Referenciei a implementação da arquitetura ViT com adapters, disponível aqui.
+O próximo passo foi adaptar o código da rede CAS-Vit para suportar adapters. Referenciei a implementação da arquitetura ViT com adapters, disponível [aqui](https://github.com/sun-hailong/CVPR24-Ease).
 
 Principais Modificações
 
