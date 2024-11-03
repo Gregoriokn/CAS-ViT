@@ -11,7 +11,7 @@ A proposta foi explorar como a inclusão de adapters pode influenciar o desempen
 	1.	Preparação do Dataset
 	2.	Adaptação do Código para Adapters
 	3.	Avaliação Experimental
- 4.  	Rodando no Colab
+    4.  	Rodando no Colab
 
 ## Preparação do Dataset
 
