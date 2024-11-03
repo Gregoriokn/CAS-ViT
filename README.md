@@ -11,6 +11,7 @@ A proposta foi explorar como a inclusão de adapters pode influenciar o desempen
 	1.	Preparação do Dataset
 	2.	Adaptação do Código para Adapters
 	3.	Avaliação Experimental
+    4.  Rodando no Colab
 
 ## Preparação do Dataset
 
@@ -48,12 +49,10 @@ Com a rede adaptada e o dataset preparado, realizei duas avaliações distintas:
 	•	Avaliação 2: Executei ambos os modelos no conjunto ImageNet-A para observar como a generalização do modelo CAS-Vit foi impactada pela adição dos adapters.
 
 
-## Run in collab
+## Rodando no Colab
 ```bash
 !git clone https://github.com/Gregoriokn/CAS-ViT.git
 ```
 ```bash
 !python classification/fine_tune.py  --data_path path_to_dataset --batch_size 32 --input_size 384 --finetune path_to_weights --lr 5e-5 --nb_classes n_classes  --model Name_model --device mps --adapters
 ```
-
-# Project in progress 🚀
