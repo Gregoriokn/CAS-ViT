@@ -10,9 +10,9 @@ from pathlib import Path
 
 import torch
 import torch.distributed as dist
-from torch._six import inf
+from torch import inf
 
-from tensorboardX import SummaryWriter
+#from tensorboardX import SummaryWriter
 
 import subprocess
 
@@ -380,6 +380,8 @@ def load_state_dict(model, state_dict, prefix='', ignore_missing="relative_posit
             model.__class__.__name__, ignore_missing_keys))
     if len(error_msgs) > 0:
         print('\n'.join(error_msgs))
+    model.missing_keys = missing_keys
+    return model
 
 
 class NativeScalerWithGradNormCount:
